@@ -1,0 +1,56 @@
+version: 2
+jobs:
+  cicd:
+    docker:
+      # https://circleci.com/docs/2.0/circleci-images/#openjdk
+      - image: circleci/node:latest
+        environment:
+          MACHINE: ubuntu@59.110.226.100
+
+    working_directory: ~/caifa-client
+    
+    steps:
+      # git pull
+      - checkout
+      - run: sudo apt-get update  && sudo apt install -y rsync
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run build-hunan
+      - run: rm -rf dist-hunan
+      - run: mv dist dist-hunan
+      - run: npm run build-hubei
+      - run: rm -rf dist-hubei
+      - run: mv dist dist-hubei
+      - run: npm run build-quanguo
+      - run: rm -rf dist-quanguo
+      - run: mv dist dist-quanguo
+      - run: npm run build
+      - run: echo "$(git log -n 1 $CIRCLE_SHA1)" > gitmsg
+      - run:
+          name: Copy files
+          command: rsync -avz --exclude='node_modules/' --exclude='.git/' -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress ~/caifa-client  $MACHINE:~/
+      - run:
+          name: Update
+          command: ssh  -t -o "StrictHostKeyChecking no" $MACHINE "python ~/caifa-client/update.py"
+      # store raw contents of src code
+workflows:
+  version: 2
+  main:
+    jobs:
+      - cicd:
+          filters:
+            branches:
+              only:
+                - master

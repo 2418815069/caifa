@@ -1,0 +1,366 @@
+/* CSS Document */
+/* .account-managementWrap {
+	position: relative;
+	background-color: #f0f0f0;
+	background-image: url("~@/assets/images/am_body_bg.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: sans-serif !important;
+	height: 100%;
+} */
+.account-headerWrap {
+	position: relative;
+	height: auto;
+	background-color: #fff;
+	box-shadow: 0 2px 3px rgba(29, 29, 29, 0.15)
+}
+.account-header {
+	margin: 0 auto;
+	padding: 10px 0;
+	width: 960px;
+	line-height: 40px;
+}
+.account-header:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.account-headerTitle {
+	float: left;
+	color: #303030;
+	font-size: 24px;
+	font-weight: 600;
+	-webkit-touch-callout: none; /* iOS Safari */
+
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+
+-khtml-user-select: none; /* Konqueror */
+
+-moz-user-select: none; /* Firefox */
+
+-ms-user-select: none; /* Internet Explorer/Edge */
+
+user-select: none;
+}
+.account-headerBtn {
+	float: right;
+}
+.account-headerBtn a {
+	color: #87b97e;
+}
+.account-headerBtn a:hover {
+	text-decoration: underline;
+}
+.account-select {
+	position: relative;
+	width: 600px;
+	margin: 60px auto;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	overflow: hidden;
+}
+.account-select-header {
+	padding: 10px 20px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	line-height: 30px;
+	background-color: #87b97e
+}
+.account-select-header:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.account-select-headerTitle {
+	float: left;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+}
+.account-select-headerBtn {
+	float: right;
+}
+.account-select-headerBtn a {
+	color: #fff;
+}
+.account-select-headerBtn a:hover {
+	text-decoration: underline;
+}
+.account-select-body {
+	margin: 5px;
+	padding: 15px;
+	height: 50vh;
+	min-height: 240px;
+	overflow: hidden;
+}
+.account-list {
+	margin-right: -10px;
+}
+.account-list:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.account-list li {
+	position: relative;
+	float: left;
+	width: 180px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.account-list li > a {
+	height: 100px;
+	padding: 9px;
+	border: 1px solid #e0e0e0;
+	background-color: #f0f0f0;
+	text-align: center;
+	display: block;
+}
+.account-list li > a p {
+	line-height: 20px;
+	font-size: 12px;
+	color: #404040;
+	text-align: left;
+}
+.account-list li > a i {
+	line-height: 80px;
+	color: #e0e0e0;
+	font-size: 48px;
+}
+.account-list li:hover > a {
+	background-color: #FFF4C5;
+}
+.account-list li:hover .Unlink {
+	display: block;
+}
+.account-list li:hover > a i {
+	color: #c0c0c0;
+}
+.account-list li:hover .checkboxWrap {
+	background-color: rgba(0,0,0,0.75)
+}
+.account-list li:hover .account-unbind {
+	display: block;
+}
+.account-list li:hover .checkbox.checkbox-default span {
+	display: inline-block
+}
+.account-list li:hover .addAccount {
+	background-color: rgba(0,0,0,0.25);
+	display: block;
+}
+.account-unbind {
+	display: none;
+	position: absolute;
+	z-index: 99;
+	top: 10px;
+	right: 10px;
+	width: 14px;
+	height: 14px;
+}
+.account-unbind > a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	line-height: 14px;
+	font-size: 14px;
+	color: #ff8888;
+	text-align: center;
+}
+.account-unbind > a:hover {
+	color: #ff3333;
+}
+.account-unbind > a i {
+	text-align: left;
+}
+.checkboxWrap {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 1px;
+	height: 22px;
+}
+.checkbox.checkbox-default {
+	position: relative;
+	float: right;
+	top: 0;
+	margin-right: 5px;
+}
+.checkbox.checkbox-default span {
+	position: absolute;
+	top: 0;
+	left: -78px;
+	display: none;
+	font-size: 12px;
+	color: #fff;
+	line-height: 20px;
+}
+.checkbox.checkbox-default label {
+	top: 2px;
+	padding-left: 0;
+}
+.checkbox.checkbox-default label::before {
+	border-radius: 50%;
+}
+.checkbox.checkbox-default input[type="checkbox"]:checked + label::before {
+	border: 2px solid #03e64e;
+	background-color: #03e64e;
+}
+.radio input[type="radio"]:checked + label::before {
+	border: 2px solid #03e64e;
+	background-color: #03e64e;
+}
+.account-list li .addAccount {
+	height: 100px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	text-align: center;
+}
+.account-list li .addAccountNew {
+	left: 0;
+}
+.account-list li .addAccountOld {
+	right: 0;
+}
+.account-list li .addAccount > a {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width: 80px;
+	height: 30px;
+	margin-top:-15px;
+	margin-left:-40px;
+	padding: 0;
+	line-height: 30px;
+	text-align: center;
+	background-color: #87b97e;
+	color: #fff;
+	font-size: 12px;
+	border: none;
+	display: block;
+}
+.account-new, .account-old {
+	margin: 60px auto;
+	width: 600px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	overflow: hidden;
+}
+.account-new-header, .account-old-header {
+	padding: 10px 20px;
+	background-color: #87b97e;
+}
+.account-new-header:after, .account-old-header:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.account-new-headerTitle, .account-old-headerTitle {
+	float: left;
+	font-size: 20px;
+	line-height: 40px;
+	font-weight: 600;
+	color: #fff;
+}
+.account-new-headerBtn, .account-old-headerBtn {
+	float: right;
+}
+.account-new-headerBtn a, .account-old-headerBtn a {
+	color: #fff;
+	font-size: 14px;
+	line-height: 40px;
+}
+.account-new-headerBtn a:hover, .account-old-headerBtn a:hover {
+	text-decoration: underline
+}
+.account-new-body, .account-old-body {
+	padding: 30px 60px;
+}
+.a-form {
+}
+.a-form-group {
+	margin: 15px 0;
+}
+.a-label {
+	display: inline-block;
+	width: 120px;
+	padding: 0 5px;
+	text-align: right;
+	vertical-align: top;
+	line-height: 30px;
+	color: #404040;
+}
+.a-input {
+	position: relative;
+	display: inline-block;
+	width: 240px;
+	vertical-align: middle;
+}
+.a-input input[type="text"], .a-input input[type="password"] {
+	width: 100%;
+	height: 30px;
+}
+.account-old .a-input input[type="text"], .account-old .a-input input[type="password"] {
+	padding-left: 30px;
+}
+.a-input input[type="submit"] {
+	width: 120px;
+	height: 40px;
+	margin-top: 10px;
+	background-color: #87b97e;
+	border-radius: 2px;
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	box-shadow: 0 2px 3px rgba(41,124,226,.3)
+}
+.a-input input[type="submit"]:active {
+	box-shadow: none;
+}
+.a-input select {
+	width: 100%;
+	height: 30px;
+	padding-right: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 28px;
+}
+.a-input select + select {
+	margin-top: 15px;
+}
+.a-input .radio {
+	margin: 5px 15px 5px 0
+}
+.a-input .a-input-icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 30px;
+	text-align: center
+}
+.a-input .a-input-icon i {
+	line-height: 30px;
+	color: #ddd;
+	font-size: 14px;
+}
+.a-input .a-input-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 30px;
+	text-align: center
+}
+.a-input .a-input-btn i {
+	line-height: 30px;
+	color: #ccc;
+	font-size: 14px;
+}
